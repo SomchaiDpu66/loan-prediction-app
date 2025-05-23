@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ML Prediction Dashboard</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: auto;
+            padding-top: 40px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>ML Prediction Dashboard</h2>
+    <form method="post">
+        <label>Age:</label>
+        <input type="number" step="any" name="AGE" required>
+
+        <label>Income:</label>
+        <input type="number" step="any" name="INCOME" required>
+
+        <label>Gender (0=Female, 1=Male):</label>
+        <input type="number" name="GENDER" required>
+
+        <label>Education (0=Low, 1=Medium, 2=High):</label>
+        <input type="number" name="EDUCATION" required>
+
+        <label>Married (0=No, 1=Yes):</label>
+        <input type="number" name="MARRIED" required>
+
+        <label>Job Type (0-5):</label>
+        <input type="number" name="JOB" required>
+
+        <label>Score:</label>
+        <input type="number" step="any" name="SCORE" required>
+
+        <label>Online Shopper (0=No, 1=Yes):</label>
+        <input type="number" name="ONLINE" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+        {% if result.error %}
+        <p style="color: red;">Error: {{ result.error }}</p>
+        {% else %}
+        <p><strong>Prediction:</strong> {{ result.prediction }}</p>
+        <p><strong>Probability of class 1:</strong> {{ result.probability }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+</body>
+
+</html>
