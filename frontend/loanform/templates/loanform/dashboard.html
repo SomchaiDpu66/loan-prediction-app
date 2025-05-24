@@ -1,0 +1,14 @@
+<h2>Dashboard - Loan Prediction Logs</h2>
+<table border="1">
+  <tr>
+    <th>Date</th><th>Income</th><th>Loan</th><th>Prediction</th>
+  </tr>
+  {% for log in logs %}
+  <tr>
+    <td>{{ log.timestamp }}</td>
+    <td>{{ log.income }}</td>
+    <td>{{ log.loan_amount }}</td>
+    <td>{{ log.result }}</td>
+  </tr>
+  {% endfor %}
+</table>
