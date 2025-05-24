@@ -1,0 +1,5 @@
+Django==4.2.1
+djangorestframework==3.14.0
+psycopg2-binary==2.9.6   # ถ้าใช้ PostgreSQL
+python-dotenv==1.0.0     # ถ้าใช้ไฟล์ .env
+httpx==0.24.1            # สำหรับเรียก API จาก FastAPI (ถ้าจำเป็น)
